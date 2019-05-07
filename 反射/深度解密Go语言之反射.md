@@ -42,9 +42,9 @@
   什么是反射
   为什么要用反射
   反射是如何实现的
-  		types 和 interface
-  		反射的基本函数
-  		反射的三大定律
+      types 和 interface
+      反射的基本函数
+      反射的三大定律
   反射相关函数的使用
       代码样例
       未导出成员
@@ -104,9 +104,9 @@ Go 语言中，每个变量都有一个静态类型，在编译阶段就确定�
 Go 官方博客里就举了一个例子：
 
 ```go
-type 	MyInt int
-var		i 		int
-var 	j 		MyInt
+type	MyInt	int
+var	i	int
+var	j	MyInt
 ```
 
 尽管 i，j 的底层类型都是 int，但我们知道，他们是不同的静态类型，除非进行类型转换，否则，i 和 j 不能同时出现在等号两侧。j 的静态类型就是 `MyInt`。
@@ -115,19 +115,19 @@ var 	j 		MyInt
 
 ```go
 type iface struct {   
-  	tab  *itab  
-  	data unsafe.Pointer
+	tab  *itab  
+	data unsafe.Pointer
 }
 
 type itab struct {   
-  	inter  *interfacetype    
-  	_type  *_type   
-  	link   *itab    
-  	hash   uint32   
-  	bad    bool   
-  	inhash bool   
-  	unused [2]byte  
-  	fun    [1]uintptr
+	inter  *interfacetype    
+	_type  *_type   
+	link   *itab    
+	hash   uint32   
+	bad    bool   
+	inhash bool   
+	unused [2]byte  
+	fun    [1]uintptr
 }
 ```
 
@@ -139,8 +139,8 @@ type itab struct {
 
 ```go
 type eface struct {  
-  	_type *_type    
-  	data  unsafe.Pointer
+	_type *_type    
+	data  unsafe.Pointer
 }
 ```
 
@@ -156,11 +156,11 @@ Go 语言中最常见的就是 `Reader` 和 `Writer` 接口：
 
 ```go
 type Reader interface {    
-  	Read(p []byte) (n int, err error)
+	Read(p []byte) (n int, err error)
 }
 
 type Writer interface {    
-  	Write(p []byte) (n int, err error)
+	Write(p []byte) (n int, err error)
 }
 ```
 
@@ -170,7 +170,7 @@ type Writer interface {
 var r io.Reader
 tty, err := os.OpenFile("/Users/qcrao/Desktop/test", os.O_RDWR, 0)
 if err != nil {  
-  return nil, err
+	return nil, err
 }
 r = tty
 ```
@@ -217,22 +217,22 @@ empty = w
 
 ```go
 type iface struct {  
-  	tab  *itab    
-  	data unsafe.Pointer
+  	tab	*itab    
+  	data	unsafe.Pointer
 }
 
 type itab struct {    
-  	inter uintptr    
-  	_type uintptr   	
-  	link uintptr   
-  	hash  uint32   
-  	_     [4]byte    
-  	fun   [1]uintptr
+	inter	uintptr    
+	_type	uintptr   	
+	link	uintptr   
+	hash	uint32   
+	_	[4]byte    
+	fun	[1]uintptr
 }
 
 type eface struct { 
-  	_type uintptr    
-  	data unsafe.Pointer
+	_type	uintptr    
+	data	unsafe.Pointer
 }
 ```
 
