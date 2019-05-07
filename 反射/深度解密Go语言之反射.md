@@ -323,8 +323,8 @@ func TypeOf(i interface{}) Type {
 
 ```go
 type emptyInterface struct {   
-		typ  *rtype  
-  	word unsafe.Pointer
+	typ	*rtype  
+	word unsafe.Pointer
 }
 ```
 
@@ -332,10 +332,10 @@ type emptyInterface struct {
 
 ```go
 func toType(t *rtype) Type {   
-  	if t == nil {       
-      	return nil   
-    }   
-  	return t
+	if t == nil {       
+		return nil   
+	}   
+	return t
 }
 ```
 
@@ -343,107 +343,107 @@ func toType(t *rtype) Type {
 
 ```go
 type Type interface {    
-  	// 所有的类型都可以调用下面这些函数
+	// 所有的类型都可以调用下面这些函数
   
-    // 此类型的变量对齐后所占用的字节数   
-  	Align() int
-  
-    // 如果是 struct 的字段，对齐后占用的字节数   
-  	FieldAlign() int
-  
-    // 返回类型方法集里的第 `i` (传入的参数)个方法    
-  	Method(int) Method
-  
-    // 通过名称获取方法  
-  	MethodByName(string) (Method, bool)
-  	
-    // 获取类型方法集里导出的方法个数    
-  	NumMethod() int
-  	
-    // 类型名称   
-  	Name() string
-  	
-    // 返回类型所在的路径，如：encoding/base64  
-  	PkgPath() string
-  	
-    // 返回类型的大小，和 unsafe.Sizeof 功能类似    
-  	Size() uintptr
-  	
-    // 返回类型的字符串表示形式    
-  	String() string
-  
-    // 返回类型的类型值   
-  	Kind() Kind
-  
-    // 类型是否实现了接口 u   
-  	Implements(u Type) bool
-  	
-    // 是否可以赋值给 u   
-  	AssignableTo(u Type) bool
-  
-    // 是否可以类型转换成 u   
-  	ConvertibleTo(u Type) bool
-  	
-    // 类型是否可以比较    
-  	Comparable() bool
-  	
-    // 下面这些函数只有特定类型可以调用    
-  	// 如：Key, Elem 两个方法就只能是 Map 类型才能调用
-  
-    // 类型所占据的位数   
-  	Bits() int
-  
-    // 返回通道的方向，只能是 chan 类型调用    
-  	ChanDir() ChanDir
-  
-    // 返回类型是否是可变参数，只能是 func 类型调用    
-  	// 比如 t 是类型 func(x int, y ... float64)   
-  	// 那么 t.IsVariadic() == true    
-  	IsVariadic() bool
-  	
-    // 返回内部子元素类型，只能由类型 Array, Chan, Map, Ptr, or Slice 调用   
-  	Elem() Type
-  	
-    // 返回结构体类型的第 i 个字段，只能是结构体类型调用    
-  	// 如果 i 超过了总字段数，就会 panic    
-  	Field(i int) StructField
-  	
-    // 返回嵌套的结构体的字段   
-  	FieldByIndex(index []int) StructField
-  	
-    // 通过字段名称获取字段   
-  	FieldByName(name string) (StructField, bool)
-  	
-    // FieldByNameFunc returns the struct field with a name   
-  	// 返回名称符合 func 函数的字段    
-  	FieldByNameFunc(match func(string) bool) (StructField, bool)
-  	
-    // 获取函数类型的第 i 个参数的类型   
-  	In(i int) Type
-  
-    // 返回 map 的 key 类型，只能由类型 map 调用  
-  	Key() Type
-  	
-    // 返回 Array 的长度，只能由类型 Array 调用   
-  	Len() int
-  	
-    // 返回类型字段的数量，只能由类型 Struct 调用  
-  	NumField() int
-  	
-    // 返回函数类型的输入参数个数   
-  	NumIn() int
-  
-    // 返回函数类型的返回值个数   
-  	NumOut() int
-  	
-    // 返回函数类型的第 i 个值的类型    
-  	Out(i int) Type
-  	
-    // 返回类型结构体的相同部分    
-  	common() *rtype
-    
-  	// 返回类型结构体的不同部分    
-  	uncommon() *uncommonType
+  // 此类型的变量对齐后所占用的字节数   
+  Align() int
+
+  // 如果是 struct 的字段，对齐后占用的字节数   
+  FieldAlign() int
+
+  // 返回类型方法集里的第 `i` (传入的参数)个方法    
+  Method(int) Method
+
+  // 通过名称获取方法  
+  MethodByName(string) (Method, bool)
+
+  // 获取类型方法集里导出的方法个数    
+  NumMethod() int
+
+  // 类型名称   
+  Name() string
+
+  // 返回类型所在的路径，如：encoding/base64  
+  PkgPath() string
+
+  // 返回类型的大小，和 unsafe.Sizeof 功能类似    
+  Size() uintptr
+
+  // 返回类型的字符串表示形式    
+  String() string
+
+  // 返回类型的类型值   
+  Kind() Kind
+
+  // 类型是否实现了接口 u   
+  Implements(u Type) bool
+
+  // 是否可以赋值给 u   
+  AssignableTo(u Type) bool
+
+  // 是否可以类型转换成 u   
+  ConvertibleTo(u Type) bool
+
+  // 类型是否可以比较    
+  Comparable() bool
+
+  // 下面这些函数只有特定类型可以调用    
+  // 如：Key, Elem 两个方法就只能是 Map 类型才能调用
+
+  // 类型所占据的位数   
+  Bits() int
+
+  // 返回通道的方向，只能是 chan 类型调用    
+  ChanDir() ChanDir
+
+  // 返回类型是否是可变参数，只能是 func 类型调用    
+  // 比如 t 是类型 func(x int, y ... float64)   
+  // 那么 t.IsVariadic() == true    
+  IsVariadic() bool
+
+  // 返回内部子元素类型，只能由类型 Array, Chan, Map, Ptr, or Slice 调用   
+  Elem() Type
+
+  // 返回结构体类型的第 i 个字段，只能是结构体类型调用    
+  // 如果 i 超过了总字段数，就会 panic    
+  Field(i int) StructField
+
+  // 返回嵌套的结构体的字段   
+  FieldByIndex(index []int) StructField
+
+  // 通过字段名称获取字段   
+  FieldByName(name string) (StructField, bool)
+
+  // FieldByNameFunc returns the struct field with a name   
+  // 返回名称符合 func 函数的字段    
+  FieldByNameFunc(match func(string) bool) (StructField, bool)
+
+  // 获取函数类型的第 i 个参数的类型   
+  In(i int) Type
+
+  // 返回 map 的 key 类型，只能由类型 map 调用  
+  Key() Type
+
+  // 返回 Array 的长度，只能由类型 Array 调用   
+  Len() int
+
+  // 返回类型字段的数量，只能由类型 Struct 调用  
+  NumField() int
+
+  // 返回函数类型的输入参数个数   
+  NumIn() int
+
+  // 返回函数类型的返回值个数   
+  NumOut() int
+
+  // 返回函数类型的第 i 个值的类型    
+  Out(i int) Type
+
+  // 返回类型结构体的相同部分    
+  common() *rtype
+
+  // 返回类型结构体的不同部分    
+  uncommon() *uncommonType
 }
 ```
 
@@ -454,17 +454,17 @@ type Type interface {
 ```go
  // rtype must be kept in sync with ../runtime/type.go:/^type._type.
 type rtype struct {    
-  	size       uintptr    
-  	ptrdata    uintptr   
-    hash       uint32   
-    tflag      tflag   
-    align      uint8  
-    fieldAlign uint8   
-    kind       uint8   
-    alg        *typeAlg  
-    gcdata     *byte  
-    str        nameOff 
-    ptrToThis  typeOff
+  size       uintptr    
+  ptrdata    uintptr   
+  hash       uint32   
+  tflag      tflag   
+  align      uint8  
+  fieldAlign uint8   
+  kind       uint8   
+  alg        *typeAlg  
+  gcdata     *byte  
+  str        nameOff 
+  ptrToThis  typeOff
 }
 ```
 
@@ -475,17 +475,17 @@ type rtype struct {
 ```go
 // arrayType represents a fixed array type.
 type arrayType struct {    
-  	rtype `reflect:"array"`   
-  	elem  *rtype // array element type    
-  	slice *rtype // slice type    
-  	len   uintptr
+  rtype `reflect:"array"`   
+  elem  *rtype // array element type    
+  slice *rtype // slice type    
+  len   uintptr
 }
 
 // chanType represents a channel type.
 type chanType struct {  
-  	rtype `reflect:"chan"`   
-  	elem  *rtype  // channel element type   
-  	dir   uintptr // channel direction (ChanDir)
+  rtype `reflect:"chan"`   
+  elem  *rtype  // channel element type   
+  dir   uintptr // channel direction (ChanDir)
 }
 ```
 
@@ -503,28 +503,28 @@ fmt.Printf("%T", 3) // int
 
 ```go
 func ValueOf(i interface{}) Value {  
-  	if i == nil {      
-      	return Value{}  
-    }
-  
-   	// ……   
-  	return unpackEface(i)
+  if i == nil {      
+		return Value{}  
+  }
+
+  // ……   
+  return unpackEface(i)
 }
 
 // 分解 eface
 func unpackEface(i interface{}) Value {    
-  	e := (*emptyInterface)(unsafe.Pointer(&i))
-    
-  	t := e.typ    
-  	if t == nil {      
-      	return Value{}  
-    }
-    
-  	f := flag(t.Kind())   
-  	if ifaceIndir(t) {       
-      	f |= flagIndir    
-    }    
-  	return Value{t, e.word, f}
+  e := (*emptyInterface)(unsafe.Pointer(&i))
+
+  t := e.typ    
+  if t == nil {      
+    return Value{}  
+  }
+
+  f := flag(t.Kind())   
+  if ifaceIndir(t) {       
+    f |= flagIndir    
+  }    
+  return Value{t, e.word, f}
 }
 ```
 
@@ -654,103 +654,103 @@ fmt.Println(x) // 7.1
 ```go
 package main
 import (    
-  	"reflect"    
-  	"fmt"
+  "reflect"    
+  "fmt"
 )
 type Child struct {    
-  	Name     string    
-  	Grade    int    
-  	Handsome bool
+  Name     string    
+  Grade    int    
+  Handsome bool
 }
 type Adult struct {    
-  	ID         string `qson:"Name"`    
-  	Occupation string    
-  	Handsome   bool
+  ID         string `qson:"Name"`    
+  Occupation string    
+  Handsome   bool
 }
 // 如果输入参数 i 是 Slice，元素是结构体，有一个字段名为 `Handsome`，
 // 并且有一个字段的 tag 或者字段名是 `Name` ，
 // 如果该 `Name` 字段的值是 `qcrao`，
 // 就把结构体中名为 `Handsome` 的字段值设置为 true。
 func handsome(i interface{}) {    
-  	// 获取 i 的反射变量 Value    
-  	v := reflect.ValueOf(i)
-    
-  	// 确定 v 是一个 Slice    
-  	if v.Kind() != reflect.Slice {       
-      	return    
+  // 获取 i 的反射变量 Value    
+  v := reflect.ValueOf(i)
+
+  // 确定 v 是一个 Slice    
+  if v.Kind() != reflect.Slice {       
+    return    
+  }
+
+  // 确定 v 是的元素为结构体    
+  if e := v.Type().Elem(); e.Kind() != reflect.Struct {        
+    return    
+  }
+
+  // 确定结构体的字段名含有 "ID" 或者 json tag 标签为 `name`    
+  // 确定结构体的字段名 "Handsome"   
+  st := v.Type().Elem()
+
+  // 寻找字段名为 Name 或者 tag 的值为 Name 的字段    
+  foundName := false    
+  for i := 0; i < st.NumField(); i++ {        
+    f := st.Field(i)        
+    tag := f.Tag.Get("qson")
+
+    if (tag == "Name" || f.Name == "Name") && f.Type.Kind() == reflect.String {  
+      foundName = true            
+      break        
+    }    
+  }
+
+  if !foundName {        
+    return   
+  }
+
+  if niceField, foundHandsome := st.FieldByName("Handsome"); foundHandsome == false || niceField.Type.Kind() != reflect.Bool {        
+    return    
+  }
+
+  // 设置名字为 "qcrao" 的对象的 "Handsome" 字段为 true    
+  for i := 0; i < v.Len(); i++ {        
+    e := v.Index(i)        
+    handsome := e.FieldByName("Handsome")
+
+    // 寻找字段名为 Name 或者 tag 的值为 Name 的字段        
+    var name reflect.Value        
+    for j := 0; j < st.NumField(); j++ {           
+      f := st.Field(j)            
+      tag := f.Tag.Get("qson")
+
+      if tag == "Name" || f.Name == "Name" {            
+        name = v.Index(i).Field(j)          
+      }       
     }
-    
-  	// 确定 v 是的元素为结构体    
-  	if e := v.Type().Elem(); e.Kind() != reflect.Struct {        
-      	return    
-    }
-    
-  	// 确定结构体的字段名含有 "ID" 或者 json tag 标签为 `name`    
-  	// 确定结构体的字段名 "Handsome"   
-  	st := v.Type().Elem()
-    
-  	// 寻找字段名为 Name 或者 tag 的值为 Name 的字段    
-  	foundName := false    
-  	for i := 0; i < st.NumField(); i++ {        
-      	f := st.Field(i)        
-      	tag := f.Tag.Get("qson")
-        
-      	if (tag == "Name" || f.Name == "Name") && f.Type.Kind() == reflect.String {  
-          	foundName = true            
-          	break        
-        }    
-    }
-  
-    if !foundName {        
-      	return   
-    }
-    
-  	if niceField, foundHandsome := st.FieldByName("Handsome"); foundHandsome == false || niceField.Type.Kind() != reflect.Bool {        
-      	return    
-    }
-  	
-    // 设置名字为 "qcrao" 的对象的 "Handsome" 字段为 true    
-  	for i := 0; i < v.Len(); i++ {        
-      	e := v.Index(i)        
-      	handsome := e.FieldByName("Handsome")
-        
-      	// 寻找字段名为 Name 或者 tag 的值为 Name 的字段        
-      	var name reflect.Value        
-      	for j := 0; j < st.NumField(); j++ {           
-          	f := st.Field(j)            
-          	tag := f.Tag.Get("qson")
-            
-          	if tag == "Name" || f.Name == "Name" {            
-              	name = v.Index(i).Field(j)          
-            }       
-        }
-      
-        if name.String() == "qcrao" {         
-          	handsome.SetBool(true)      
-        }    
-    }
+
+    if name.String() == "qcrao" {         
+      handsome.SetBool(true)      
+    }    
+  }
 }
 
 func main() {   
-  	children := []Child{       
-      	{Name: "Ava", Grade: 3, Handsome: true},        
-      	{Name: "qcrao", Grade: 6, Handsome: false},    
-    }
-  
-    adults := []Adult{      
-      	{ID: "Steve", Occupation: "Clerk", Handsome: true},        
-      	{ID: "qcrao", Occupation: "Go Programmer", Handsome: false},    
-    }
-  	
-    fmt.Printf("adults before handsome: %v\n", adults)   
-  	handsome(adults)    
-  	fmt.Printf("adults after handsome: %v\n", adults)
-    
-  	fmt.Println("-------------")
-   
-  	fmt.Printf("children before handsome: %v\n", children)   
-  	handsome(children)   
-  	fmt.Printf("children after handsome: %v\n", children)
+  children := []Child{       
+    {Name: "Ava", Grade: 3, Handsome: true},        
+    {Name: "qcrao", Grade: 6, Handsome: false},    
+  }
+
+  adults := []Adult{      
+    {ID: "Steve", Occupation: "Clerk", Handsome: true},        
+    {ID: "qcrao", Occupation: "Go Programmer", Handsome: false},    
+  }
+
+  fmt.Printf("adults before handsome: %v\n", adults)   
+  handsome(adults)    
+  fmt.Printf("adults after handsome: %v\n", adults)
+
+  fmt.Println("-------------")
+
+  fmt.Printf("children before handsome: %v\n", children)   
+  handsome(children)   
+  fmt.Printf("children after handsome: %v\n", children)
 }
 ```
 
@@ -782,31 +782,31 @@ children after handsome: [{Ava 3 true} {qcrao 6 true}]
 package main
 
 import (    
-  	"reflect"    
-  	"fmt"
+  "reflect"    
+  "fmt"
 )
 
 type Child struct {    
-  	Name     string    
-  	handsome bool
+  Name     string    
+  handsome bool
 }
 
 func main() {    
-  	qcrao := Child{Name: "qcrao", handsome: true}
-  
-    v := reflect.ValueOf(&qcrao)
-  
-  	f := v.Elem().FieldByName("Name")    
-  	fmt.Println(f.String())
-    
-  	f.SetString("stefno")    
-  	fmt.Println(f.String())
-    
-  	f = v.Elem().FieldByName("handsome")
-    
-  	// 这一句会导致 panic，因为 handsome 字段未导出    
-  	//f.SetBool(true)    
-  	fmt.Println(f.Bool())
+  qcrao := Child{Name: "qcrao", handsome: true}
+
+  v := reflect.ValueOf(&qcrao)
+
+  f := v.Elem().FieldByName("Name")    
+  fmt.Println(f.String())
+
+  f.SetString("stefno")    
+  fmt.Println(f.String())
+
+  f = v.Elem().FieldByName("handsome")
+
+  // 这一句会导致 panic，因为 handsome 字段未导出    
+  //f.SetBool(true)    
+  fmt.Println(f.Bool())
 }
 ```
 
@@ -864,10 +864,10 @@ type MyInt int
 type YourInt int
 
 func main() {    
-		m := MyInt(1)   
-    y := YourInt(1)
-    
-    fmt.Println(reflect.DeepEqual(m, y)) // false
+  m := MyInt(1)   
+  y := YourInt(1)
+
+  fmt.Println(reflect.DeepEqual(m, y)) // false
 }
 ```
 
@@ -900,15 +900,15 @@ func main() {
 
 ```go
 func DeepEqual(x, y interface{}) bool {    
-  	if x == nil || y == nil {        
-      	return x == y    
-    }    
-  	v1 := ValueOf(x)    
-  	v2 := ValueOf(y)    
-  	if v1.Type() != v2.Type() {        
-				return false    
-    }    
-		return deepValueEqual(v1, v2, make(map[visit]bool), 0)
+  if x == nil || y == nil {        
+    return x == y    
+  }    
+  v1 := ValueOf(x)    
+  v2 := ValueOf(y)    
+  if v1.Type() != v2.Type() {        
+    return false    
+  }    
+  return deepValueEqual(v1, v2, make(map[visit]bool), 0)
 }
 ```
 
@@ -926,22 +926,22 @@ func DeepEqual(x, y interface{}) bool {
 // deepValueEqual 函数
 // ……
 case Map:    
-	if v1.IsNil() != v2.IsNil() {        
-		return false    
-	}    
-	if v1.Len() != v2.Len() {        
-		return false    
-	}    
-	if v1.Pointer() == v2.Pointer() {        
-		return true    
-	}    
-	for _, k := range v1.MapKeys() {
-		val1 := v1.MapIndex(k)        
-		val2 := v2.MapIndex(k)        
-		if !val1.IsValid() || !val2.IsValid() || !deepValueEqual(v1.MapIndex(k), v2.MapIndex(k), visited, depth+1) {            
-			return false        
-		}    
-	}   
+  if v1.IsNil() != v2.IsNil() {        
+    return false    
+  }    
+  if v1.Len() != v2.Len() {        
+    return false    
+  }    
+  if v1.Pointer() == v2.Pointer() {        
+    return true    
+  }    
+  for _, k := range v1.MapKeys() {
+    val1 := v1.MapIndex(k)        
+    val2 := v2.MapIndex(k)        
+    if !val1.IsValid() || !val2.IsValid() || !deepValueEqual(v1.MapIndex(k), v2.MapIndex(k), visited, depth+1) {            
+      return false        
+    }    
+  }   
 	return true
 
 // ……    
@@ -951,9 +951,9 @@ case Map:
 
 ```go
 type visit struct {    
-	a1  unsafe.Pointer    
-	a2  unsafe.Pointer    
-	typ Type
+	a1	unsafe.Pointer    
+	a2	unsafe.Pointer    
+	typ	Type
 }
 
 map[visit]bool
