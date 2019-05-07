@@ -926,23 +926,23 @@ func DeepEqual(x, y interface{}) bool {
 // deepValueEqual 函数
 // ……
 case Map:    
-    if v1.IsNil() != v2.IsNil() {        
-				return false    
-    }    
-		if v1.Len() != v2.Len() {        
-      	return false    
-    }    
-		if v1.Pointer() == v2.Pointer() {        
-      	return true    
-    }    
-		for _, k := range v1.MapKeys() {
-      	val1 := v1.MapIndex(k)        
-      	val2 := v2.MapIndex(k)        
-      	if !val1.IsValid() || !val2.IsValid() || !deepValueEqual(v1.MapIndex(k), v2.MapIndex(k), visited, depth+1) {            
-          return false        
-        }    
-    }   
-		return true
+	if v1.IsNil() != v2.IsNil() {        
+		return false    
+	}    
+	if v1.Len() != v2.Len() {        
+		return false    
+	}    
+	if v1.Pointer() == v2.Pointer() {        
+		return true    
+	}    
+	for _, k := range v1.MapKeys() {
+		val1 := v1.MapIndex(k)        
+		val2 := v2.MapIndex(k)        
+		if !val1.IsValid() || !val2.IsValid() || !deepValueEqual(v1.MapIndex(k), v2.MapIndex(k), visited, depth+1) {            
+			return false        
+		}    
+	}   
+	return true
 
 // ……    
 ```
@@ -952,8 +952,8 @@ case Map:
 ```go
 type visit struct {    
 	a1  unsafe.Pointer    
-  a2  unsafe.Pointer    
-  typ Type
+	a2  unsafe.Pointer    
+	typ Type
 }
 
 map[visit]bool
@@ -1024,7 +1024,7 @@ Type 是一个接口，定义了很多相关方法，用于获取类型信息。
 
 
 
-#原文链接
+# 原文链接
 
 https://mp.weixin.qq.com/s/ndOAUNRxwMmbCfNssUK4sg
 
