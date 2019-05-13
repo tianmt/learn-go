@@ -3,6 +3,9 @@ Go 相关文章收藏
 
 ## 目录
 
+- defer
+    - [Go面试必考题目之defer篇](https://github.com/tianmt/learn-go/blob/master/defer/Go%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83%E9%A2%98%E7%9B%AE%E4%B9%8Bdefer%E7%AF%87.md)
+
 - 切片
     - [深度解密Go语言之Slice](https://github.com/tianmt/learn-go/blob/master/%E5%88%87%E7%89%87/%E6%B7%B1%E5%BA%A6%E8%A7%A3%E5%AF%86Go%E8%AF%AD%E8%A8%80%E4%B9%8BSlice.md)
 
