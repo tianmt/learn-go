@@ -8,7 +8,7 @@ Go 相关文章收藏
     - [Go面试必考题目之method篇](https://github.com/tianmt/learn-go/blob/master/%E5%87%BD%E6%95%B0-%E6%96%B9%E6%B3%95/Go%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83%E9%A2%98%E7%9B%AE%E4%B9%8Bmethod%E7%AF%87.md)
 
 - 内置数据结构
-    - [深度解密Go语言之map]()
+    - [深度解密Go语言之map](https://github.com/tianmt/learn-go/blob/master/%E5%86%85%E7%BD%AE%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%B7%B1%E5%BA%A6%E8%A7%A3%E5%AF%86Go%E8%AF%AD%E8%A8%80%E4%B9%8Bmap.md)
 
 - defer
     - [Go面试必考题目之defer篇](https://github.com/tianmt/learn-go/blob/master/defer/Go%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83%E9%A2%98%E7%9B%AE%E4%B9%8Bdefer%E7%AF%87.md)
