@@ -30,3 +30,7 @@ Go 相关文章收藏
 
 - unsafe
   - [深度解密Go语言之unsafe](https://github.com/tianmt/learn-go/blob/master/unsafe/%E6%B7%B1%E5%BA%A6%E8%A7%A3%E5%AF%86Go%E8%AF%AD%E8%A8%80%E4%B9%8Bunsafe.md)
+
+- 并发
+  - [图解Go select语句原理](https://github.com/tianmt/learn-go/blob/master/%E5%B9%B6%E5%8F%91/%E5%9B%BE%E8%A7%A3Go%20select%E8%AF%AD%E5%8F%A5%E5%8E%9F%E7%90%86.md)
+  - [GCTT 出品 | 我的 Channel 在 Select 语句中的 Bug](https://github.com/tianmt/learn-go/blob/master/%E5%B9%B6%E5%8F%91/GCTT%20%E5%87%BA%E5%93%81%20%7C%20%E6%88%91%E7%9A%84%20Channel%20%E5%9C%A8%20Select%20%E8%AF%AD%E5%8F%A5%E4%B8%AD%E7%9A%84%20Bug.md)
