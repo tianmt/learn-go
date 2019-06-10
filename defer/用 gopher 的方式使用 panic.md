@@ -571,7 +571,7 @@ via: https://medium.com/golangspec/panicking-like-a-gopher-367a9ce04bb8
 
 本文由 GCTT 原创编译，Go语言中文网 荣誉推出
 
-![img](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
 
 [阅读原文](https://mp.weixin.qq.com/s/wJaQQNXoohqZVlyBnfl2cQ##)
 
