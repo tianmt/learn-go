@@ -3,7 +3,8 @@ Go 相关文章收藏
 
 ## 目录
 
-
+- 包
+  - [GCTT 出品 | Go 语言中你应该知道的关于 Package 的所有](https://github.com/tianmt/learn-go/blob/master/%E5%8C%85/GCTT%20%E5%87%BA%E5%93%81%20%7C%20Go%20%E8%AF%AD%E8%A8%80%E4%B8%AD%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E5%85%B3%E4%BA%8E%20Package%20%E7%9A%84%E6%89%80%E6%9C%89.md)
 - 函数-方法
     - [Go面试必考题目之method篇](https://github.com/tianmt/learn-go/blob/master/%E5%87%BD%E6%95%B0-%E6%96%B9%E6%B3%95/Go%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83%E9%A2%98%E7%9B%AE%E4%B9%8Bmethod%E7%AF%87.md)
     - [杭州线下分享：First class function in Go](https://github.com/tianmt/learn-go/blob/master/%E5%87%BD%E6%95%B0-%E6%96%B9%E6%B3%95/%E6%9D%AD%E5%B7%9E%E7%BA%BF%E4%B8%8B%E5%88%86%E4%BA%AB%EF%BC%9AFirst%20class%20function%20in%20Go.md)
